@@ -160,7 +160,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MINDSDB_HOST = '127.0.0.1'
 MINDSDB_PORT = 47334
-MINDSDB_SERVER = 'http://127.0.0.1:47334'
+MINDSDB_SERVER = 'http://localhost:47334'
 
 
 # Static files (CSS, JavaScript, Images)

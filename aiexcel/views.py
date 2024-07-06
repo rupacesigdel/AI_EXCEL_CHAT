@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .mindsdb_tools import predict_with_mindsdb
 import logging
+from .models import ExcelKnowledge
+
 
 logger = logging.getLogger(__name__)
 
@@ -18,19 +20,20 @@ def home(request):
 def chat(request):
     if request.method == 'POST':
         user_message = request.POST.get('message')
-        if user_message:
-            try:
-                ai_reply = predict_with_mindsdb(user_message)
-                
-                if 'error' in ai_reply:
-                    return JsonResponse({"error": ai_reply['error']}, status=500)
+        # Fetch the relevant answer from ExcelKnowledge model
+        try:
+            knowledge = ExcelKnowledge.objects.filter(question__icontains=user_message).first()
+            if knowledge:
+                response = knowledge.answer
+            else:
+                response = "I'm sorry, I don't have an answer for that question."
+        except Exception as e:
+            response = f"An error occurred: {str(e)}"
 
-                return JsonResponse({"reply": ai_reply.get('answer', 'No response from model.')})
-            except Exception as e:
-                logger.error("Error in chat view: %s", str(e))
-                return JsonResponse({"error": str(e)}, status=500)
-        return JsonResponse({"error": "No message provided"}, status=400)
+        return JsonResponse({'reply': response})
+
     return render(request, 'aiexcel/chat.html')
+
 
 def signup(request):
     if request.method == 'POST':

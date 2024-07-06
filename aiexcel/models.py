@@ -1,9 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 import json
-
-# Import the new JSONField from django.db.models
 from django.db.models import JSONField
+
+class ExcelKnowledge(models.Model):
+    category = models.CharField(max_length=50)
+    question = models.TextField()
+    answer = models.TextField()
+
+    class Meta:
+        db_table = 'aiexcel_excelknowledge'
 
 class ChatHistory(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
