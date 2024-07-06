@@ -1,0 +1,9 @@
+mindsdb-sdk
+python-dotenv
+pandas
+PyJWT
+django-allauth
+mindsdb==24.7.1.0
+duckdb==0.9.1
+mysqlclient
+psycopg2-binary

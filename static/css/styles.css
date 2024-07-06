@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+/* Chat Form Styles */
+#chat-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#chat-form .form-group {
+  margin-bottom: 15px;
+}
+
+#chat-form .form-control {
+  border-radius: 4px;
+}
+
+#chat-form .btn-primary {
+  border-radius: 4px;
+}
+
+/* Response Styles */
+#chat-reply {
+  margin-top: 20px;
+}
+
+#chat-reply p {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 10px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+}

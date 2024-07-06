@@ -1,0 +1,31 @@
+{% extends "aiexcel/home.html" %}
+{% load static %}
+{% block chatactive %}active{% endblock chatactive %}
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container mt-4">
+    <h2>Chat with AI</h2>
+    <form id="chat-form" action="{% url 'chat' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="message">Enter your message:</label>
+            <input type="text" id="message" name="message" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Send</button>
+    </form>
+</div>
+
+<div class="container mt-4">
+    <h2>Response:</h2>
+    <div id="chat-reply"></div>
+</div>
+{% block js %}
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}
+{% endblock body %}
