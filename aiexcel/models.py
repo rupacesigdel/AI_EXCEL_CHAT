@@ -11,10 +11,31 @@ class ExcelKnowledge(models.Model):
     class Meta:
         db_table = 'aiexcel_excelknowledge'
 
+
+class Excelchat(models.Model):
+    CATEGORY_CHOICES = [
+        ('Formula', 'Formula'),
+        ('Rule', 'Rule'),
+        ('Syntax', 'Syntax'),
+        ('Project Idea', 'Project Idea'),
+    ]
+
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    question = models.TextField()
+    answer = models.TextField()
+
+    def __str__(self):
+        return f"{self.category}: {self.question[:50]}"
+
+    class Meta:
+        verbose_name = "Excel chat"
+        verbose_name_plural = "Excel chat"
+        ordering = ['category']
+
 class ChatHistory(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
-    response = JSONField()  # Use JSONField for both PostgreSQL and SQLite
+    response = JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

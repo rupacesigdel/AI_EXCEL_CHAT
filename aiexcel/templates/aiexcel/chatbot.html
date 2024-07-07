@@ -1,0 +1,31 @@
+{% extends "aiexcel/home.html" %}
+{% load static %}
+{% block chatbotactive %}active{% endblock chatbotactive %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<div class="container">
+    <h1>AI Chat</h1>
+    <input type="text" id="query" class="form-control" placeholder="Enter your question" />
+    <button class="btn btn-primary mt-2" onclick="getExcelKnowledge()">Get Answer</button>
+    <p class="mt-3" id="answer"></p>
+</div>
+
+{% block js %}
+<script>
+  async function getExcelKnowledge() {
+      const query = document.getElementById('query').value;
+      const response = await fetch(`/get-excel-knowledge/?query=${encodeURIComponent(query)}`);
+      const data = await response.json();
+      document.getElementById('answer').innerText = data.answer || 'No answer found';
+  }
+</script>
+{% endblock js %}
+{% endblock body %}
