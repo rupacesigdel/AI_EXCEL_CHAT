@@ -20,3 +20,5 @@ INSERT INTO excel_knowledge (category, question, answer) VALUES
 ('Rule', 'How to use IF function?', 'The IF function checks whether a condition is met and returns one value for TRUE and another for FALSE.'),
 ('Syntax', 'What is the syntax for SUM?', 'The SUM function syntax is SUM(number1, [number2], ...).'),
 ('Project Idea', 'Can you suggest a project for economics?', 'Create a financial forecasting model using regression analysis.')
+
+SELECT pg_reload_conf();

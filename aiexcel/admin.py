@@ -11,3 +11,4 @@ class ChatHistoryAdmin(admin.ModelAdmin):
 class AIModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'created_at')
     search_fields = ('name', 'description')
+    

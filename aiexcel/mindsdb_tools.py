@@ -4,7 +4,6 @@ from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
-# Initialize MindsDB connection
 try:
     connection = mindsdb_sdk.connect(settings.MINDSDB_SERVER)
     logger.info("Successfully connected to MindsDB.")
@@ -13,7 +12,6 @@ except Exception as e:
 
 def predict_with_mindsdb(user_message, model_name='excel_knowledge_model'):
     try:
-        # Query the MindsDB model
         query = f"""
         SELECT answer
         FROM {model_name}
@@ -24,3 +22,4 @@ def predict_with_mindsdb(user_message, model_name='excel_knowledge_model'):
     except Exception as e:
         logger.error("Error in predict_with_mindsdb: %s", str(e))
         return {"error": str(e)}
+    

@@ -11,18 +11,46 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import os
-from dotenv import load_dotenv
-
+# Load environment variables from the .env file
 load_dotenv()
 
+# Get the Gemini API key from environment variables
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-SECRET_KEY = 'asfhdksadgkalntylksjth'
-DEBUG = True
+GEMINI_API_URL = f'https://console.cloud.google.com/apis/api/sheets.googleapis.com/metrics?project=aiexcel-1720019031726'
+
+if GEMINI_API_KEY is None:
+    print("GEMINI_API_KEY not set")
+    raise ValueError("GEMINI_API_KEY environment variable is not set")
+
+
+# Get the secret key from environment variables (replace 'YOUR_SECRET_KEY' with your actual key or load it from the .env file)
+SECRET_KEY = os.getenv('SECRET_KEY', 'asfhdksadgkalntylksjth')
+
+# Set debug mode
+DEBUG = os.getenv('DEBUG', 'True').lower() in ('true', '1', 't')
+
+import requests
+
+GEMINI_API_KEY = 'your_gemini_api_key_here'
+
+headers = {
+    'Authorization': f'Bearer {GEMINI_API_KEY}',
+    'Content-Type': 'application/json',
+}
+data = {
+    'contents': [
+        {'parts': [{'text': 'Test query'}]}
+    ]
+}
+response = requests.post(GEMINI_API_URL, headers=headers, json=data)
+
+
 
 ALLOWED_HOSTS = []
 
