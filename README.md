@@ -1,6 +1,6 @@
 # AI-Excel Chat with Django, MindsDB, and OpenAI
 
-This project demonstrates how to create an AI-powered chat application using Django, MindsDB, and OpenAI, all containerized with Docker.
+This project demonstrates how to create an AI-powered chat application using Django, MindsDB, and GEMINI, all containerized with Docker.
 
 ## Contain
 
@@ -17,7 +17,7 @@ This project demonstrates how to create an AI-powered chat application using Dja
 
 ## Demo Video
 
-[Watch the demo video]()
+[Watch the demo video](https://github.com/rupacesigdel/AI_EXCEL_CHAT/assets/159915440/9482224b-fb65-462e-b59c-e68de32e1e5a)
 
 ## Technologies Used
 
