@@ -5,7 +5,6 @@ This project demonstrates how to create an AI-powered chat application using Dja
 ## Contain
 
 - [Features](#features)
-- [Demo Video](#demo-video)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -15,9 +14,6 @@ This project demonstrates how to create an AI-powered chat application using Dja
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-## Demo Video
-
-[Watch the demo video](https://github.com/rupacesigdel/AI_EXCEL_CHAT/assets/159915440/9482224b-fb65-462e-b59c-e68de32e1e5a)
 
 ## Technologies Used
 
